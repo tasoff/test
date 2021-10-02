@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  nginx:
+    image: mynginx
+    ports:
+      - 9000:9000
+    depends_on:
+      - python
+
+  python:
+    image: mypython
+    ports:
+      - 8080:8080
