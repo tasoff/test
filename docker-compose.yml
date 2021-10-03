@@ -2,13 +2,16 @@ version: '3'
 
 services:
   nginx:
-    image: mynginx
+    build:
+      context: ./nginx
     ports:
       - 9000:9000
+      - 8000:80
     depends_on:
       - python
 
   python:
-    image: mypython
+    build:
+      context: ./python
     ports:
       - 8080:8080
