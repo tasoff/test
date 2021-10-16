@@ -1,7 +1,8 @@
-from bottle import route, run
+from flask import Flask
 import psycopg2
 
-@route('/script')
+app = Flask(__name__)
+@app.route('/script')
 def index():
     conn = None
     try:
@@ -25,5 +26,5 @@ def index():
         if conn is not None:
             conn.close()
     return "Table created successfully!\n"
-
-run(host='0.0.0.0', port=8080)
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=8080)
